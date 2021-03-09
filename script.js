@@ -60,9 +60,9 @@ function AppelAPI(long, lat) {
 
 
         if(heureActuelle >= 6 && heureActuelle < 21) {
-            imgIcone.src = `ressources/jour/${resultatsAPI.weather[0].description}.svg`
+            imgIcone.src = `ressources/jour/${resultatsAPI.weather[0].icon}.svg`
         } else  {
-           imgIcone.src = `ressources/nuit/${resultatsAPI.weather[0].description}.svg`
+           imgIcone.src = `ressources/nuit/${resultatsAPI.weather[0].icon}.svg`
         }
         
 
