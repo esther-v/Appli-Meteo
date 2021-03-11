@@ -43,7 +43,7 @@ if(navigator.geolocation) {
 function AppelAPI(long, lat) {
     
     
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${CLEAPI}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${CLEAPI}&lang=fr&units=metric`)
     .then((reponse) => {
         return reponse.json();
     })
