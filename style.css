@@ -47,6 +47,10 @@ h1 {
     align-items: center;
 }
 
+.localisation{
+    font-size: 20px;
+}
+
 .temperature{
     font-size: 20px;
 }
@@ -56,7 +60,7 @@ h1 {
     gap: 10px;
     justify-content: space-between;
     padding: 10px;
-    background: rgb(59, 60, 75);
+    background: rgb(39, 39, 50);
 }
 
 .prochains-jours{
