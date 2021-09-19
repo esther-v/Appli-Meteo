@@ -5,14 +5,14 @@ let resultatsAPIForecast;
 const temps = document.querySelector('.temps');
 const temperature = document.querySelector('.temperature')
 const localisation = document.querySelector('.localisation')
-const heure = document.querySelectorAll('.heure-nom-prevision')
-const tempPourH = document.querySelectorAll('.heure-prevision-valeur')
-const imgIcone = document.querySelector('.logo-meteo');
-const joursDiv = document.querySelectorAll('.jour-prevision-nom');
-const tempJoursDiv = document.querySelectorAll('.jour-prevision-temp');
+const heure = document.querySelectorAll('.heure-prevision')
+const tempPourH = document.querySelectorAll('.temp-prevision')
+const imgIcone = document.querySelector('.icone-meteo');
+const joursDiv = document.querySelectorAll('.jour-prevision');
+const tempJoursDiv = document.querySelectorAll('.temp-day-prevision');
 
 let heureActuelle = new Date().getHours();
-console.log(heureActuelle)
+
 
 // Affichage/Gestion des jours
 const joursSemaine = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi','Samedi', 'Dimanche']
@@ -28,7 +28,7 @@ let tabJoursEnOrdre = joursSemaine.slice(joursSemaine.indexOf(jourActuel)).conca
 
 if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
-        console.log(position);
+
         let long = position.coords.longitude;
         let lat = position.coords.latitude;
         AppelAPI(long, lat);
@@ -42,6 +42,8 @@ if(navigator.geolocation) {
 
 function AppelAPI(long, lat) {
     
+    // 
+    // https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude={part}&appid=${CLEAPI}&lang=fr&units=metric
     
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${CLEAPI}&lang=fr&units=metric`)
     .then((reponse) => {
@@ -49,7 +51,6 @@ function AppelAPI(long, lat) {
     })
     .then((data) => {
         resultatsAPI = data;
-        console.log(resultatsAPI)
 
         localisation.textContent = resultatsAPI.name;
         temps.innerText = resultatsAPI.weather[0].description;
@@ -58,7 +59,6 @@ function AppelAPI(long, lat) {
         
         //icone dynamique
 
-        console.log(heureActuelle);
 
         if(heureActuelle >= 7 && heureActuelle < 20) {
             imgIcone.src = `ressources/jour/${resultatsAPI.weather[0].icon}.svg`
@@ -80,15 +80,12 @@ function apiForecast3Hour(long, lat) {
     })
     .then((donnees) => {
         resultatsAPIForecast = donnees;
-        console.log(resultatsAPIForecast);
 
         // les heures par tranche de 3
 
         for(let i=0; i < heure.length; i++) {
 
             let heureIncr = heureActuelle + (i * 3);
-
-            console.log(heureIncr);
 
             if(heureIncr > 24) {
                 heure[i].innerText = `${heureIncr - 24} h`

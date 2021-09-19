@@ -1,0 +1,96 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #f1f1f1;
+}
+
+h1 {
+    margin-bottom: 40px;
+}
+
+.container{
+    border: 2px solid rgb(0, 217, 255);
+    border-radius: 8px;
+    width: 300px;
+    /* background: rgb(36, 39, 50); */
+    background-image: linear-gradient(rgba(	36, 39, 50, 0.8), rgba(	36, 39, 50, 0.8)), url('https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2t5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60');
+    background-position: center;
+    background-size: cover;
+}
+
+.box-today{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 20px;
+    /* background-image: linear-gradient(rgba(	36, 39, 50, 0.8), rgba(	36, 39, 50, 0.8)), url('https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2t5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60');
+    background-position: center;
+    background-size: cover; */
+    overflow: hidden;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;;
+}
+.box-image-temperature{
+    display: flex;
+    align-items: center;
+}
+
+.temperature{
+    font-size: 20px;
+}
+
+.prochaines-heures{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 10px;
+    background: rgb(59, 60, 75);
+}
+
+.prochains-jours{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.box-jour{
+    display: flex;
+}
+.jour-prevision{
+    text-align: right;
+    width: 50px;
+    margin-right: 20px;
+}
+.temp-day-prevision{
+    width: 50px;
+    color: rgb(0, 217, 255);
+}
+
+@media screen and (max-width: 340px) {
+    body{
+        height: auto;
+        padding: 20px 0;
+    }
+
+}
+
+@media screen and (max-width: 300px) {
+    .container{
+        width: 270px;
+    }
+
+}
